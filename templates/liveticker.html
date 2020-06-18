@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<meta http-equiv="refresh" content="60" />
+
+<h2> Live Stock Ticker Project!</h2>
+<h3> Here are the Current Stock Prices: </h3>
+<script>
+(document).ready(function(){
+setInterval(function(){
+      $("#here").load(window.location.href + " #here" );
+}, 1000);
+});
+
+
+
+</script>
+
+<body>
+    {% for x in range(0,numtickers) : %}
+        <p> {{tickers[x]}} : ${{prices[x]}} </p>
+    {% endfor %}
+
+<a href = /livetickerentry> Enter some other Stocks!</a>
+<a href = "/"> Return Home  </a>
+
+</body>
+
+{% endblock %}
